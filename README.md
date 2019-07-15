@@ -1,5 +1,5 @@
 # Card Carousel
-TODO: Add card carousel
+TODO: Add card carousel description
 
 ## Installation
 

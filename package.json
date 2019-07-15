@@ -10,7 +10,8 @@
     "global.d.ts"
   ],
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc --p ./tsconfig.json && tsc --p ./docs/tsconfig.json && node-sass ./docs/main.scss ./docs/assets/main.css --output-style compressed",
+    "preview": "http-server ./docs"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/codewithkyle/card-carousel#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
+    "node-sass": "^4.12.0",
     "typescript": "^3.5.3"
   }
 }
