@@ -41,6 +41,7 @@ export class CardCarousel
         {
             this._slides[i].addEventListener('dragstart', this.handleDragStart);
             this._slides[i].addEventListener('mouseup', this.handleDragStop);
+            this._slides[i].setAttribute('draggable', 'true');
         }
 
         this._carousel.addEventListener('mousemove', this.handleDrag, { passive: true });
@@ -51,6 +52,7 @@ export class CardCarousel
     private preventScrollSnapping() : void
     {
         this._carousel.classList.add('is-pointer-device');
+        this._carousel.classList.add('is-dragging');
     }
 
     private addScrollSnapping() : void
@@ -69,9 +71,10 @@ export class CardCarousel
 
     private stopDragging(e:MouseEvent) : void
     {
+        this._carousel.classList.remove('is-dragging');
+        
         if(this._dragging)
         {
-            this._carousel.classList.remove('is-dragging');
             this._dragging = false;
             this._mouse = null;
 

@@ -54,11 +54,42 @@
 </head>
 <body>
     <main>
-        Test
+        <carousel>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+            <slide draggable="true">
+                <shim>
+                    <span>Content</span>
+                </shim>
+            </slide>
+        </carousel>
     </main>
     <script src="assets/CardCarouse.js"></script>
     <script>
-        new exports['CardCarousel'].prototype.constructor();
+        new exports['CardCarousel'].prototype.constructor(document.body.querySelector('carousel'));
     </script>
 </body>
 </html>

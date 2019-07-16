@@ -1,13 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CardCarousel = /** @class */ (function () {
+var CardCarousel = (function () {
     function CardCarousel(carouselEl) {
-        console.log('test');
         this.handleDragStart = this.startDragging.bind(this);
         this.handleDragStop = this.stopDragging.bind(this);
         this.handleDrag = this.dragging.bind(this);
         this.handleMouseDown = this.preventScrollSnapping.bind(this);
         this.handleScroll = this.addScrollSnapping.bind(this);
+        if (!carouselEl) {
+            console.error('Please provide a carousel element');
+            return;
+        }
         this._carousel = carouselEl;
         this._slides = Array.from(this._carousel.querySelectorAll('slide'));
         this._mouse = null;
@@ -19,6 +22,7 @@ var CardCarousel = /** @class */ (function () {
         for (var i = 0; i < this._slides.length; i++) {
             this._slides[i].addEventListener('dragstart', this.handleDragStart);
             this._slides[i].addEventListener('mouseup', this.handleDragStop);
+            this._slides[i].setAttribute('draggable', 'true');
         }
         this._carousel.addEventListener('mousemove', this.handleDrag, { passive: true });
         this._carousel.addEventListener('mousedown', this.handleMouseDown, { passive: true });
@@ -26,6 +30,7 @@ var CardCarousel = /** @class */ (function () {
     };
     CardCarousel.prototype.preventScrollSnapping = function () {
         this._carousel.classList.add('is-pointer-device');
+        this._carousel.classList.add('is-dragging');
     };
     CardCarousel.prototype.addScrollSnapping = function () {
         this._carousel.classList.remove('is-pointer-device');
@@ -38,8 +43,8 @@ var CardCarousel = /** @class */ (function () {
         this._dragDistance = 0;
     };
     CardCarousel.prototype.stopDragging = function (e) {
+        this._carousel.classList.remove('is-dragging');
         if (this._dragging) {
-            this._carousel.classList.remove('is-dragging');
             this._dragging = false;
             this._mouse = null;
             var currentScrollLeft = this._carousel.scrollLeft;
@@ -83,5 +88,4 @@ var CardCarousel = /** @class */ (function () {
     return CardCarousel;
 }());
 exports.CardCarousel = CardCarousel;
-//# sourceMappingURL=CardCarousel.js.map
 //# sourceMappingURL=CardCarouse.js.map

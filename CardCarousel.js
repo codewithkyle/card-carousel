@@ -5,6 +5,10 @@ export class CardCarousel {
         this.handleDrag = this.dragging.bind(this);
         this.handleMouseDown = this.preventScrollSnapping.bind(this);
         this.handleScroll = this.addScrollSnapping.bind(this);
+        if (!carouselEl) {
+            console.error('Please provide a carousel element');
+            return;
+        }
         this._carousel = carouselEl;
         this._slides = Array.from(this._carousel.querySelectorAll('slide'));
         this._mouse = null;
@@ -16,6 +20,7 @@ export class CardCarousel {
         for (let i = 0; i < this._slides.length; i++) {
             this._slides[i].addEventListener('dragstart', this.handleDragStart);
             this._slides[i].addEventListener('mouseup', this.handleDragStop);
+            this._slides[i].setAttribute('draggable', 'true');
         }
         this._carousel.addEventListener('mousemove', this.handleDrag, { passive: true });
         this._carousel.addEventListener('mousedown', this.handleMouseDown, { passive: true });
@@ -23,6 +28,7 @@ export class CardCarousel {
     }
     preventScrollSnapping() {
         this._carousel.classList.add('is-pointer-device');
+        this._carousel.classList.add('is-dragging');
     }
     addScrollSnapping() {
         this._carousel.classList.remove('is-pointer-device');
@@ -35,8 +41,8 @@ export class CardCarousel {
         this._dragDistance = 0;
     }
     stopDragging(e) {
+        this._carousel.classList.remove('is-dragging');
         if (this._dragging) {
-            this._carousel.classList.remove('is-dragging');
             this._dragging = false;
             this._mouse = null;
             const currentScrollLeft = this._carousel.scrollLeft;
