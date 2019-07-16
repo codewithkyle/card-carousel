@@ -41,11 +41,24 @@
     </style>
 
     <link href="assets/main.css" rel="stylesheet">
+
+    <script>
+        var modules = {};
+        var module = {};
+        module.exports = function(module){ return module; };
+        var exports = {};
+        function require(value){
+            console.log(value);
+        }
+    </script>
 </head>
 <body>
     <main>
         Test
     </main>
-    <script src="assets/main.js" defer="defer"></script>
+    <script src="assets/CardCarouse.js"></script>
+    <script>
+        new exports['CardCarousel'].prototype.constructor();
+    </script>
 </body>
 </html>

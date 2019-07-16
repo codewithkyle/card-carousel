@@ -10,7 +10,7 @@
     "global.d.ts"
   ],
   "scripts": {
-    "compile": "tsc --p ./tsconfig.json && tsc --p ./docs/tsconfig.json && node-sass ./docs/main.scss ./docs/assets/main.css --output-style compressed",
+    "compile": "tsc --p ./tsconfig.json && node-sass ./docs/main.scss ./docs/assets/main.css --output-style compressed",
     "preview": "http-server ./docs"
   },
   "repository": {
