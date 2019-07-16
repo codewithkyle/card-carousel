@@ -1,7 +1,7 @@
 {
-  "name": "card-carousel",
+  "name": "@codewithkyle/card-carousel",
   "version": "0.0.1",
-  "description": "",
+  "description": "A simple ES6 card carousel library using CSS scroll snapping.",
   "main": "CardCarousel.js",
   "types": "global.d.ts",
   "files": [

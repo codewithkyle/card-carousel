@@ -1,5 +1,5 @@
 # Card Carousel
-TODO: Add card carousel description
+A simple ES6 card carousel library using CSS scroll snapping.
 
 ## Installation
 
@@ -18,5 +18,5 @@ import { CardCarousel } from '@codewithkyle/card-carousel';
 Then it's as simple as creating a new instance of the class:
 
 ```typescript
-new CardCarousel(document.body.querySelector('card-carousel'));
+new CardCarousel(document.body.querySelector('carousel'));
 ```
