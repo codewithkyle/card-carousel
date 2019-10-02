@@ -1,5 +1,6 @@
-# Card Carousel
-A simple ES6 card carousel library using CSS scroll snapping.
+# ⚠️ This project is no longer maintained ⚠️
+
+Consider using this [web component](https://components.codewithkyle.com/carousels/card-carousel) version instead.
 
 ## Installation
 
